@@ -13,7 +13,7 @@
   <div class="gate-box" id="gate-box">
     <div class="gate-label">Private</div>
     <form id="gate-form">
-      <input type="password" id="gate-pw" inputmode="numeric" autocomplete="off" placeholder="••••" autofocus>
+      <input type="text" id="gate-pw" inputmode="numeric" pattern="[0-9]*" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="••••" maxlength="4" autofocus>
       <button type="submit">Enter</button>
     </form>
     <div class="gate-error" id="gate-error">Incorrect password</div>
