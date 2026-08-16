@@ -37,6 +37,29 @@ a{color:inherit;text-decoration:none}
 ::selection{background:var(--red-hot);color:#fff}
 
 /* ============================================================
+   GATE — soft client-side lock (not real security; see README)
+   ============================================================ */
+.gate{position:fixed;inset:0;z-index:99999;background:var(--black);
+  display:grid;place-items:center;padding:24px}
+.gate-box{width:min(88vw,300px);text-align:center}
+.gate-label{font-size:9px;letter-spacing:.32em;text-transform:uppercase;font-weight:600;
+  color:var(--dim);margin-bottom:22px}
+.gate-box input{width:100%;background:none;border:0;border-bottom:1px solid var(--hair);
+  color:var(--light);font-family:var(--sans);font-size:22px;letter-spacing:.4em;
+  text-align:center;padding:10px 0;outline:none}
+.gate-box input:focus{border-color:var(--dim)}
+.gate-box button{margin-top:22px;width:100%;font:inherit;font-size:9.5px;letter-spacing:.28em;
+  text-transform:uppercase;font-weight:600;color:var(--light);background:none;
+  border:1px solid var(--hair);padding:12px;cursor:pointer;transition:.2s}
+.gate-box button:hover{border-color:var(--dim)}
+.gate-error{margin-top:14px;font-size:10px;letter-spacing:.1em;color:var(--red-hot);
+  opacity:0;height:14px}
+.gate-error.on{opacity:1}
+.gate-box.shake{animation:gateShake .38s ease}
+@keyframes gateShake{20%{transform:translateX(-8px)}40%{transform:translateX(8px)}
+  60%{transform:translateX(-5px)}80%{transform:translateX(5px)}100%{transform:translateX(0)}}
+
+/* ============================================================
    HEADER
    ============================================================ */
 .site-head{position:fixed;top:0;left:0;right:0;height:var(--head);z-index:900;

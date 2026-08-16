@@ -9,6 +9,18 @@
 </head>
 <body>
 
+<div class="gate" id="gate">
+  <div class="gate-box" id="gate-box">
+    <div class="gate-label">Private</div>
+    <form id="gate-form">
+      <input type="password" id="gate-pw" inputmode="numeric" autocomplete="off" placeholder="••••" autofocus>
+      <button type="submit">Enter</button>
+    </form>
+    <div class="gate-error" id="gate-error">Incorrect password</div>
+  </div>
+</div>
+<script>if(localStorage.getItem('by-gate-ok')==='1'){document.getElementById('gate').style.display='none'}</script>
+
 <!-- curtain intro -->
 <div class="intro run" id="intro">
   <div class="iris"><img src="images/opening/intro-iris.jpg" alt=""></div>

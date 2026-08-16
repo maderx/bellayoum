@@ -4,6 +4,32 @@
    curtain intro (index only), portfolio slideshows.
    ============================================================ */
 
+/* ── soft password gate (client-side only, not real security) ── */
+(function(){
+  const GATE_KEY = 'by-gate-ok';
+  const PASSWORD = '2222';
+  const gate = document.getElementById('gate');
+  if(!gate) return;
+
+  const form  = document.getElementById('gate-form');
+  const input = document.getElementById('gate-pw');
+  const box   = document.getElementById('gate-box');
+  const error = document.getElementById('gate-error');
+
+  form.addEventListener('submit', e=>{
+    e.preventDefault();
+    if(input.value === PASSWORD){
+      localStorage.setItem(GATE_KEY, '1');
+      gate.style.display = 'none';
+    } else {
+      error.classList.add('on');
+      box.classList.remove('shake'); void box.offsetWidth; box.classList.add('shake');
+      input.value = '';
+      input.focus();
+    }
+  });
+})();
+
 /* ── Fresnel followspot on header nav ───────────────────────── */
 (function(){
   const head = document.getElementById('head');

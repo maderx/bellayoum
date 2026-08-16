@@ -75,6 +75,18 @@ no code change needed:
 - `images/profile/portrait.jpg` — profile portrait
 - `archive/doors/pottery.jpg`, `photography.jpg`, `boxing.jpg` — Archive hub cover photos
 
+## Password gate
+
+Every page shows a full-screen "Private" lock on first visit. This is a **client-side soft gate only**
+— not real security. The password lives in plain text in `js/site.js` (`const PASSWORD = ...`), which
+is publicly readable since this is a public repo, so anyone who checks the page source can bypass it.
+It's meant to keep casual visitors out, not to protect sensitive content.
+
+- To change the password: edit `PASSWORD` in `js/site.js`.
+- Once entered correctly, the unlock is remembered per-browser via `localStorage` (key `by-gate-ok`).
+- For real access control, move hosting to something with actual auth in front of it (e.g. Cloudflare
+  Access, or a host with paid password-protection) instead of relying on this gate.
+
 ## Language toggle
 
 Every page ships English and Korean text on elements with `data-en` / `data-kr`. The EN/KR buttons in
